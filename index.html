@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen">
+
+
+
+</head>
+
+<body>
+
+
+    <div id="container">
+
+        <div id="splash">
+
+            <div id="info">
+                <h1>Orbit</h1>
+                <br>
+                <p>Touch/click and hold to attract the particles</p>
+                <br>
+                <p>Change particle properties via the the menu</p>
+                <br>
+                <button>OK</button>
+
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+        <div id="menu">
+
+
+
+            <div class="slider">
+                <label for="particle-number">
+                    <p>Particle number:</p>
+                </label>
+                <input type="range" id="particle-number" min="0" max="1000" value="100">
+            </div>
+
+
+
+
+            <div class="slider">
+                <label for="gravity-strength">
+                    <p>Gravity:</p>
+                </label>
+                <input type="range" id="gravity-strength" min="0" max="70" value="0">
+            </div>
+
+
+
+            <div class="slider">
+                <label for="particle-mass">
+                    <p>Particle attraction:</p>
+                </label>
+                <input type="range" id="particle-mass" min="0" max="5" step="0.1" value="0">
+            </div>
+
+
+            <div class="slider">
+                <label for="attractor-mass">
+                    <p>Finger/mouse attraction:</p>
+                </label>
+                <input type="range" id="attractor-mass" min="0" max="250" value="40">
+            </div>
+
+
+
+
+        </div>
+
+        <div id="tab">
+
+            <img id="left-img" class="fit" src="images/tab_left.svg" />
+            <img id="right-img" class="fit" src="images/tab_right.svg" />
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+
+
+
+</body>
+
+
+</html>

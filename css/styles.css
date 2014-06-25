@@ -1,0 +1,213 @@
+/********************************************** RESET **************************************************/
+
+/*nice grey #4D4D4D*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+/********************************************** GENERAL **************************************************/
+
+.fit{
+    width: auto;
+    height: auto;
+    max-height: 90%;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.slider {
+    position: relative;
+    height:25%;
+    
+}
+
+
+input {
+position: absolute;
+    display:block;
+width:80%;
+left:10%;
+    top:40%;
+}
+
+label {
+    position: absolute;
+    display:block;
+width:80%;
+left:10%;
+    top:10%;
+
+}
+
+h1{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    width:10%;
+    height: 15%;
+}
+
+img{
+    float:right;
+
+}
+
+
+
+
+
+/******************************************** SPECIFIC ********************************************/
+
+
+
+#container {
+    width: 100%;
+    height: 100%;
+    font-family: Calibri, sans-serif;
+}
+
+
+
+#splash {
+    position: absolute;
+    z-index: 3;
+     top=0;
+    left:0;
+    width: 100%;
+    height: 100%; 
+    color:#FFFFFF;
+    background-color:  rgba(0, 0, 0, .7);
+    text-align: center;
+}
+
+#info {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top:30%;
+
+}
+
+#canvas {
+    position:absolute;
+    top=0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+#menu {
+    position:absolute;
+    border-radius: 3px; 
+    z-index:2;
+    top:10%;
+    right:-50%;
+    width:50%;
+    height:80%;
+    background-color: #000000;
+    color:#FFFFFF; 
+    -webkit-transition: right 0.5s ;
+    -moz-transition: right 0.5s;
+
+}
+
+
+#menu.open{
+    right:0%;
+    -webkit-box-shadow:0 0 30px white; 
+    -moz-box-shadow: 0 0 30px white; 
+    box-shadow:0 0 30px white;
+    -webkit-transition: right 0.5s ;
+    -moz-transition: right 0.5s;
+}
+
+#tab{
+position:absolute;
+    z-index:2;
+    top:45%;
+    right:0%;
+    width:10%;
+    height:10%;
+    -webkit-transition: right 0.5s ;
+    -moz-transition: right 0.5s;
+
+}
+
+#tab.open{
+    right:50%;
+    -webkit-transition: right 0.5s ;
+     -moz-transition: right 0.5s;
+
+}
+
+
+#right-img{
+    display:none;
+
+}
+
+
+
+
+
+
