@@ -57,6 +57,9 @@ table {
 
 
 
+
+
+
 /********************************************** GENERAL **************************************************/
 
 .fit{
@@ -93,17 +96,8 @@ left:10%;
 
 }
 
-h1{
-    font-weight: bold;
-    font-size: 40px;
-}
-
-p {
-    font-size: 20px;
-}
-
 button {
-    width:10%;
+    width:15%;
     height: 15%;
 }
 
@@ -113,6 +107,39 @@ img{
 }
 
 
+
+
+
+@media screen and (min-width: 800px) {
+    
+h1{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+}
+    
+    
+
+
+
+@media screen and (max-width: 800px) {
+    
+h1{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+p {
+    font-size: 15px;
+}
+
+    
+}
 
 
 
