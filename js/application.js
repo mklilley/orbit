@@ -60,6 +60,10 @@ var wall_co = 0.5;
 var g = parseFloat($("#gravity-strength").val());
 var m = parseFloat($("#particle-mass").val());
 var matr = parseFloat($("#attractor-mass").val());
+var num_particles;
+var num_attractors;
+var attractor;
+var particles;
 
 
 //Add event listeners to the buttons and inputs, now switching to JQuery for demonstration purposes
@@ -79,6 +83,8 @@ for (var i = 0; i < 200; i++) {
     particles.push(new create_particle(m));
 
 }
+
+num_particles = particles.length;
 
 
 //Initially draws particles onto the canvas and then only starts to move them once the spash screen OK button has been pressed
@@ -120,6 +126,7 @@ function doTouchStart(event) {
     var canvas_x = event.targetTouches[0].pageX;
     var canvas_y = event.targetTouches[0].pageY;
     attractor.push(new create_attractor(canvas_x, canvas_y, matr));
+    num_attractors = attractor.length;
 
 }
 
@@ -138,6 +145,7 @@ function doTouchEnd(event) {
 
 
     attractor.pop();
+    num_attractors = attractor.length;
 
 }
 
@@ -147,6 +155,7 @@ function doClickDown(event) {
     var canvas_y = event.pageY;
 
     attractor.push(new create_attractor(canvas_x, canvas_y, matr));
+    num_attractors = attractor.length;
 
 }
 
@@ -164,7 +173,7 @@ function doClickMove(event) {
 function doClickUp(event) {
 
     attractor.pop();
-
+    num_attractors = attractor.length;
 }
 
 
@@ -186,6 +195,8 @@ function updateParticles() {
     if (extra < 0) {
 
         particles.splice(extra, Math.abs(extra));
+        
+        num_particles = particles.length;
 
     }
 
@@ -196,6 +207,7 @@ function updateParticles() {
 
             particles.push(new create_particle(m));
         }
+        num_particles = particles.length;
 
     }
 
@@ -207,7 +219,7 @@ function updateParticleMass() {
 
     m = parseFloat($("#particle-mass").val());
 
-    for (var j = 0; j < particles.length; j++) {
+    for (var j = 0; j < num_particles; j++) {
         particles[j].mass = m;
     }
 
@@ -217,7 +229,7 @@ function updateAttractorMass() {
 
     matr = parseFloat($("#attractor-mass").val())
 
-        for (var j=0; j<attractor.length; j++){
+        for (var j=0; j<num_attractors; j++){
     attractor[j].mass = matr;}
 
 }
@@ -255,6 +267,7 @@ function create_particle(m) {
 
     this.radius = 4.0;
     this.mass = m;
+    
 
 
 }
@@ -289,7 +302,7 @@ function draw() {
 
 
     //Now draw the particles
-    for (var j = 0; j < particles.length; j++) {
+    for (var j = 0; j < num_particles; j++) {
         var p = particles[j];
 
         ctx.beginPath();
@@ -308,7 +321,7 @@ function draw() {
 
 //Faster particles get a more red colour, slower get a more blue colour
 function colour() {
-    for (var j = 0; j < particles.length; j++) {
+    for (var j = 0; j < num_particles; j++) {
 
         var v2 = particles[j].vx * particles[j].vx + particles[j].vy * particles[j].vy;
 
@@ -324,10 +337,12 @@ function colour() {
 /************************************************************************* FUNCTIONS FOR MOVING THE PARTICLES *************************************************/
 
 function move() {
+    
+
 
     for (var k = 0; k < 10; k++) {
 
-        for (var t = 0; t < particles.length; t++) {
+        for (var t = 0; t < num_particles; t++) {
             var p = particles[t];
 
             //Boundary conditions
@@ -341,7 +356,7 @@ function move() {
 
             // Kick
             /* Attractor */
-            for (var j = 0; j < attractor.length; j++) {
+            for (var j = 0; j < num_attractors; j++) {
                 atr = attractor[j];
                 Rtemp2 = (atr.x - p.x) * (atr.x - p.x) + (atr.y - p.y) * (atr.y - p.y);
                 Ax += CON * (atr.mass) / Rtemp2 * (atr.x - p.x);
@@ -350,7 +365,7 @@ function move() {
 
             /* Self-gravity */
             if (m > 0) {
-                for (var j = 0; j < particles.length && j != t; j++) {
+                for (var j = 0; j < num_particles && j != t; j++) {
                     part = particles[j];
                     Rtemp2 = (part.x - p.x) * (part.x - p.x) + (part.y - p.y) * (part.y - p.y);
                     Ax += CON * (part.mass) / Rtemp2 * (part.x - p.x);
@@ -378,7 +393,7 @@ function move() {
 
             // Kick
             /* Attractor */
-            for (var j = 0; j < attractor.length; j++) {
+            for (var j = 0; j < num_attractors; j++) {
                 atr = attractor[j];
                 Rtemp2 = (atr.x - p.x) * (atr.x - p.x) + (atr.y - p.y) * (atr.y - p.y);
                 Ax += CON * (atr.mass) / Rtemp2 * (atr.x - p.x);
@@ -387,7 +402,7 @@ function move() {
 
             /* Self-gravity */
             if (m > 0) {
-                for (var j = 0; j < particles.length && j != t; j++) {
+                for (var j = 0; j < num_particles && j != t; j++) {
                     part = particles[j];
                     Rtemp2 = (part.x - p.x) * (part.x - p.x) + (part.y - p.y) * (part.y - p.y);
                     Ax += CON * (part.mass) / Rtemp2 * (part.x - p.x);
