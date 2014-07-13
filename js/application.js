@@ -68,6 +68,7 @@ var particles;
 
 //Add event listeners to the buttons and inputs, now switching to JQuery for demonstration purposes
 $("#tab").on("click", toggleMenu);
+$("#tab").on("touchmove", false);
 $("#particle-number").on("change", updateParticles);
 $("#particle-mass").on("change", updateParticleMass);
 $("#attractor-mass").on("change", updateAttractorMass);
