@@ -193,19 +193,26 @@ p {
     height:80%;
     background-color: #000000;
     color:#FFFFFF; 
-    -webkit-transition: right 0.5s ;
-    -moz-transition: right 0.5s;
+    
+     -webkit-transform: translate3d(0,0,0);
+     -moz-transform: translate3d(0,0,0);
+    
+    -webkit-transition: right 0.25s ;
+    -moz-transition: right 0.25s;
 
 }
 
 
 #menu.open{
     right:0%;
+     -webkit-transform: translate3d(0,0,0);
+     -moz-transform: translate3d(0,0,0);
+    
     -webkit-box-shadow:0 0 30px white; 
     -moz-box-shadow: 0 0 30px white; 
     box-shadow:0 0 30px white;
-    -webkit-transition: right 0.5s ;
-    -moz-transition: right 0.5s;
+    -webkit-transition: right 0.25s ;
+    -moz-transition: right 0.25s;
 }
 
 #tab{
@@ -215,15 +222,21 @@ position:absolute;
     right:0%;
     width:10%;
     height:10%;
-    -webkit-transition: right 0.5s ;
-    -moz-transition: right 0.5s;
+     -webkit-transform: translate3d(0,0,0);
+     -moz-transform: translate3d(0,0,0);
+    
+    -webkit-transition: right 0.25s ;
+    -moz-transition: right 0.25s;
 
 }
 
 #tab.open{
     right:50%;
-    -webkit-transition: right 0.5s ;
-     -moz-transition: right 0.5s;
+         -webkit-transform: translate3d(0,0,0);
+     -moz-transform: translate3d(0,0,0);
+    
+    -webkit-transition: right 0.25s ;
+     -moz-transition: right 0.25s;
 
 }
 
